@@ -7,7 +7,6 @@
 
 extern unsigned char red_on, green_on;
 extern unsigned char led_changed;
-extern unsigned char state;
 
 void led_init();
 void led_update();
