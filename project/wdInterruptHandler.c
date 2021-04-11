@@ -18,8 +18,8 @@ __interrupt_vec(WDT_VECTOR) WDT(){	/* 250 interrupts/sec */
 
 void
 __interrupt_vec(PORT2_VECTOR) Port_2(){
-  if (P2IFG & SW1){
-    P2IFG &= ~SW1;
+  if (P2IFG & SWITCHES){
+    P2IFG &= ~SWITCHES;
     switch_interrupt_handler();
     blink_count = 0;
   }
