@@ -19,7 +19,28 @@ void switch_interrupt_handler(){
   char p2val = P2IN;
 
   //activates when both SW1 and SW3 are pressed down
-  if(p2val == 0b00001010){
-    state_advance();
+  if(p2val == 0b00001110){
+    substate = 0;
+    switch(state){
+    case 0:
+    case 2:
+      state = 1;
+      break;
+    case 1:
+      state = 0;
+      break;
+    }
   }
+  else if(p2val == 0b00001101){
+    substate = 0;
+    switch(state){
+    case 0:
+      state = 2;
+      break;
+    case 2:
+      state = 0;
+      break;
+    }
+  }
+  substate_advance();
 }

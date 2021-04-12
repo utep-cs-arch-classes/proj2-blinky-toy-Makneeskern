@@ -53,6 +53,22 @@ void substate_advance(){
       break;
     }
     break;
+  case 2:
+    switch(substate){
+    case 0:
+      red_on = 0;
+      green_on = 1;
+      changed = 1;
+      substate = 1;
+      break;
+    case 1:
+      red_on = 0;
+      green_on = 0;
+      changed = 1;
+      substate = 0;
+      break;
+    }
+    break;
   }
 
   led_changed = changed;

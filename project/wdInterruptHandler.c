@@ -10,7 +10,7 @@ __interrupt_vec(WDT_VECTOR) WDT(){	/* 250 interrupts/sec */
     substate_advance();
     blink_count = 0;
   }
-  else if(blink_count == 3 && state == 1){
+  else if(blink_count == 3 && (state == 1 || state == 2)){
     substate_advance();
     blink_count = 0;
   }
